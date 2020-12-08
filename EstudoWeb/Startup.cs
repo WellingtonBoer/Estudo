@@ -35,6 +35,8 @@ namespace EstudoWeb
 
             #endregion
 
+            #region Múltiplas classes
+
             services.AddTransient<ServiceA>();
             services.AddTransient<ServiceB>();
             services.AddTransient<ServiceC>();
@@ -53,6 +55,14 @@ namespace EstudoWeb
                         return null;
                 }
             });
+
+            #endregion
+
+            #region Generics
+
+            services.AddScoped(serviceType: typeof(IGenericRepository<>), implementationType: typeof(GenericRepository<>));
+
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
